@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pribadi | Mahasiswa Teknologi Informasi</title>
+
+    <style>
+        /* Pengaturan dasar halaman */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Bagian identitas dan navigasi */
+        header {
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: white;
+            padding: 24px 8%;
+        }
+
+        .judul {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #bfdbfe;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 28px;
+            margin-bottom: 24px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+        }
+
+        h2 {
+            color: #1d4ed8;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        /* Profil utama */
+        .profil {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        figure {
+            text-align: center;
+        }
+
+        .foto {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #dbeafe;
+            background-color: #dbeafe;
+        }
+
+        figcaption {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .informasi {
+            flex: 1;
+            min-width: 230px;
+        }
+
+        .informasi p {
+            margin-bottom: 8px;
+        }
+
+        .tombol {
+            display: inline-block;
+            background-color: #1d4ed8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .tombol:hover {
+            background-color: #1e40af;
+        }
+
+        /* Riwayat pendidikan dan minat */
+        .kartu {
+            background-color: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 16px;
+            margin-bottom: 14px;
+            border-radius: 6px;
+        }
+
+        .daftar-minat {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .minat {
+            background-color: #eff6ff;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #dbeafe;
+        }
+
+        aside {
+            background-color: #e0f2fe;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0284c7;
+        }
+
+        /* Formulir kontak */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid #93c5fd;
+            border-color: #2563eb;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #1d4ed8;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        #status-form {
+            margin-top: 12px;
+            color: #166534;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #0f172a;
+            color: white;
+            padding: 24px 15px;
+            margin-top: 35px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 22px 5%;
+            }
+
+            .judul {
+                font-size: 23px;
+            }
+
+            main {
+                padding: 0 12px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .profil {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header dan nav saya pisahkan agar identitas halaman
+         mudah ditemukan dan menu dapat mengarahkan pembaca
+         langsung ke bagian informasi yang ingin dibaca. -->
+    <header>
+        <h1 class="judul">Profil Pribadi</h1>
+
+        <nav aria-label="Navigasi utama">
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Section ini mengelompokkan informasi profil karena
+             identitas, foto, dan deskripsi merupakan satu topik
+             yang saling berkaitan bagi pengunjung halaman. -->
+        <section id="beranda">
+            <h2>Tentang Saya</h2>
+
+            <div class="profil">
+
+                <figure>
+                    <img
+                        class="foto"
+                        src="foto-saya.JPG"
+                        alt="Placeholder foto profil mahasiswa"
+                    >
+                    <figcaption>Foto profil saya</figcaption>
+                </figure>
+
+                <article class="informasi">
+                    <h3>Halo, saya [Iqbal Saputra]</h3>
+                    <p><strong>NIM:</strong> [2025503040]</p>
+                    <p><strong>Program Studi:</strong> Teknologi Informasi</p>
+
+                    <a class="tombol" href="#kontak">
+                        Hubungi Saya
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="pendidikan">
+            <h2>Riwayat Pendidikan</h2>
+
+            <article class="kartu">
+                <h3>Pendidikan Dasar</h3>
+                <p>
+                    SDN Alassumur 1 
+                </p>
+            </article>
+
+            <article class="kartu">
+                <h3>Pendidikan Menengah Pertama</h3>
+                <p>
+                    MTs An-Nur
+                </p>
+            </article>
+
+            <article class="kartu">
+                <h3>Pendidikan Menengah Atas</h3>
+                <p>
+                    SMA Ibrahimy 1 Sukorejo
+                </p>
+            </article>
+
+            <article class="kartu">
+                <h3>Pendidikan Saat Ini</h3>
+                <p>
+                    Mahasiswa Program Studi Teknologi Informasi
+                </p>
+                <p>Universitas Ibrahimy</p>
+            </article>
+        </section>
+
+        <section id="keahlian">
+            <h2>Keahlian dan Minat</h2>
+
+            <div class="daftar-minat">
+
+                <article class="minat">
+                    <h3>01. Desain Grafis</h3>
+                    <p>
+                        Saya tertarik mempelajari pembuatan desain
+                        visual menggunakan aplikasi desain grafis.
+                    </p>
+                </article>
+
+                <article class="minat">
+                    <h3>02. Pemrograman</h3>
+                    <p>
+                        Saya ingin meningkatkan kemampuan menulis
+                        kode dan membuat aplikasi sederhana.
+                    </p>
+                </article>
+
+                <article class="minat">
+                    <h3>03. Desain Web</h3>
+                    <p>
+                        Saya tertarik membuat halaman web dengan
+                        HTML dan CSS meskipun saya sedikit tidak paham.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <aside>
+            <h3>Tujuan Saya</h3>
+            <p>
+                Saya ingin terus belajar, mengembangkan keterampilan
+                di bidang teknologi informasi, dan menerapkan ilmu
+                yang saya peroleh dalam kegiatan perkuliahan.
+            </p>
+        </aside>
+
+        <!-- Form ditempatkan dalam section tersendiri supaya
+             pengunjung bisa fokus mengirimkan pesan tanpa
+             mencampur formulir dengan informasi profil lainnya. -->
+ 
